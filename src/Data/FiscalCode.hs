@@ -8,8 +8,12 @@ module Data.FiscalCode
   )
   where
 
+-- base
+import           Data.Char  (toLower)
+import           Data.List  (partition, take)
+
 -- hourglass
-import           Time.Types
+import           Time.Types (Date (..))
 
 newtype Surname = Surname String
 
@@ -27,10 +31,36 @@ data FiscalCode = FiscalCode
   , _fcYear        :: String -- two alphanumeric characters
   , _fcMonth       :: String -- one letter
   , _fcDay         :: String -- two alphanumeric characters
-  , _fcBirthPlae   :: String -- one letter and three alphanumeric characters
+  , _fcBirthPlace  :: String -- one letter and three alphanumeric characters
   , _fcControlCode :: String -- one letter
   }
 
+isVowel :: Char -> Bool
+isVowel = (`elem` "aeiou") . toLower
+
+isConsonant :: Char -> Bool
+isConsonant = not . isVowel
+
+generateFCSurname :: Surname -> String
+generateFCSurname (Surname surname) =
+  take 3 $ surnameConsonants ++ surnameVowels ++ repeat 'X'
+    where
+      (surnameConsonants, surnameVowels) = partition isConsonant surname
+
 generateFiscalCode :: Surname -> Name -> Date -> Gender -> BirthPlace -> FiscalCode
-generateFiscalCode (Surname surname) (Name name) (Date year month day) gender (BirthPlace birthPlace) =
-  _asdf
+generateFiscalCode surname (Name name) (Date year month day) gender (BirthPlace birthPlace) =
+  FiscalCode fcSurname fcName fcYear fcMonth fcDay fcBirthPlace fcControlCode
+    where
+      fcSurname = generateFCSurname surname
+
+      fcName = ""
+
+      fcYear = ""
+
+      fcMonth = ""
+
+      fcDay = ""
+
+      fcBirthPlace = ""
+
+      fcControlCode = ""
