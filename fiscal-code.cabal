@@ -1,0 +1,33 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 5fd7022ccba1ca232fe3cb555c94e037503683810956e14f1b8d60a02b7f71d0
+
+name:           fiscal-code
+version:        0.1.0.0
+synopsis:       Library to generate and verify the Italian fiscal code
+description:    Library to generate and verify the Italian fiscal code
+category:       Web
+homepage:       https://github.com/marcosh/fiscal-code#readme
+author:         Marco Perone
+maintainer:     pasafama@gmail.com
+copyright:      2020 Marco Perone
+license:        OtherLicense
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      Data.FiscalCode
+  other-modules:
+      Paths_fiscal_code
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
