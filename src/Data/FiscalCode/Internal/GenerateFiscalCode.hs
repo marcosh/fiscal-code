@@ -1,5 +1,6 @@
 module Data.FiscalCode.Internal.GenerateFiscalCode
   ( generateSurname
+  , generateName
   )
   where
 
