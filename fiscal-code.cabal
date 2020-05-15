@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5fd7022ccba1ca232fe3cb555c94e037503683810956e14f1b8d60a02b7f71d0
+-- hash: 3d65af35665faf062338d63e4a9a19a6d571d906674b9a341cdc1fd8e50b37b7
 
 name:           fiscal-code
 version:        0.1.0.0
@@ -30,4 +30,5 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , hourglass
   default-language: Haskell2010
