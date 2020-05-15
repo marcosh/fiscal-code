@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3d65af35665faf062338d63e4a9a19a6d571d906674b9a341cdc1fd8e50b37b7
+-- hash: e5b44024fcae58f40bba7284ebfe6687cdd82e35ca261d317a7f18d615b48bf4
 
 name:           fiscal-code
 version:        0.1.0.0
@@ -31,4 +31,19 @@ library
   build-depends:
       base >=4.7 && <5
     , hourglass
+  default-language: Haskell2010
+
+test-suite fiscal-code-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_fiscal_code
+  hs-source-dirs:
+      test
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , fiscal-code
+    , hourglass
+    , hspec
   default-language: Haskell2010

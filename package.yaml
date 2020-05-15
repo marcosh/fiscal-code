@@ -17,3 +17,12 @@ dependencies:
 
 library:
   source-dirs:       src
+
+tests:
+  fiscal-code-test:
+    main:            Spec.hs
+    source-dirs:     test
+    dependencies:
+      - fiscal-code
+      - hspec
+      - QuickCheck
