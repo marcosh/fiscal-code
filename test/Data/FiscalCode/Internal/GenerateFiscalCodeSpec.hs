@@ -77,3 +77,14 @@ spec =
 
       it "returns the correct date for a female" $
         generateDay (Date 1983 November 30) Female `shouldBe` "70"
+
+    describe "generateControlCode" $ do
+
+      it "is correct for my data" $
+        generateControlCode "PRNMRC83S14C957" `shouldBe` "V"
+
+      it "is correct for her data" $
+        generateControlCode "DZNCCL83S70L407" `shouldBe` "T"
+
+      it "is correct for his data" $
+        generateControlCode "PRNPLA19H29L407" `shouldBe` "P"
