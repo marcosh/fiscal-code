@@ -9,6 +9,7 @@ data Gender
   | Female
 
 -- | Belfiore code of the birth town or country
+-- composed by an uppercase letter and three digits
 -- see https://it.wikipedia.org/wiki/Codice_catastale
 newtype BirthPlace = BirthPlace String
 

@@ -30,4 +30,4 @@ generateFiscalCode surname name date gender birthPlace =
 
       fcBirthPlace = generateBirthPlace birthPlace
 
-      fcControlCode = ""
+      fcControlCode = generateControlCode $ fcSurname ++ fcName ++ fcYear ++ fcMonth ++ fcDay ++ fcBirthPlace
