@@ -66,3 +66,14 @@ spec =
 
       it "returns \"S\" for November" $
         generateMonth (Date 2020 November 01) `shouldBe` "S"
+
+    describe "generateDay" $ do
+
+      it "returns the correct date for a male" $
+        generateDay (Date 1983 November 14) Male `shouldBe` "14"
+
+      it "returns the correct date for a male on a single digit day" $
+        generateDay (Date 1983 November 3) Male `shouldBe` "03"
+
+      it "returns the correct date for a female" $
+        generateDay (Date 1983 November 30) Female `shouldBe` "70"
