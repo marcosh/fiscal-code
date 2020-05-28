@@ -3,6 +3,7 @@ module Data.FiscalCode.Internal.GenerateFiscalCode
   , generateName
   , generateYear
   , generateMonth
+  , generateDay
   )
   where
 
@@ -42,13 +43,14 @@ takeEnd i xs = f xs (drop i xs)
     where f (_:xs') (_:ys) = f xs' ys
           f xs' _          = xs'
 
-generateYear :: Date -> String
-generateYear date = case length year of
-  1 -> '0' : year
-  2 -> year
-  _ -> takeEnd 2 year
+padded :: Int -> a -> [a] -> [a]
+padded n p xs = replicate diff p ++ xs
   where
-    year = timePrint [Format_Year] date
+    len_xs = length xs
+    diff   = n - len_xs
+
+generateYear :: Date -> String
+generateYear date = padded 2 '0' $ takeEnd 2 $ timePrint [Format_Year] date
 
 generateMonth :: Date -> String
 generateMonth date = case dateMonth date of
@@ -64,3 +66,10 @@ generateMonth date = case dateMonth date of
   October   -> "R"
   November  -> "S"
   December  -> "T"
+
+generateDay :: Date -> Gender -> String
+generateDay date gender = padded 2 '0' $ show day
+  where
+    day = case gender of
+      Male   -> dateDay date
+      Female -> dateDay date + 40
