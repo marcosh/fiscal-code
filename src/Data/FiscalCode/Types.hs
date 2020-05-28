@@ -8,6 +8,8 @@ data Gender
   = Male
   | Female
 
+-- | Belfiore code of the birth town or country
+-- see https://it.wikipedia.org/wiki/Codice_catastale
 newtype BirthPlace = BirthPlace String
 
 data FiscalCode = FiscalCode

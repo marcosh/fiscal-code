@@ -15,7 +15,7 @@ import           Data.FiscalCode.Internal.GenerateFiscalCode
 import           Data.FiscalCode.Types
 
 generateFiscalCode :: Surname -> Name -> Date -> Gender -> BirthPlace -> FiscalCode
-generateFiscalCode surname name date gender (BirthPlace _) =
+generateFiscalCode surname name date gender birthPlace =
   FiscalCode fcSurname fcName fcYear fcMonth fcDay fcBirthPlace fcControlCode
     where
       fcSurname = generateSurname surname
@@ -28,6 +28,6 @@ generateFiscalCode surname name date gender (BirthPlace _) =
 
       fcDay = generateDay date gender
 
-      fcBirthPlace = ""
+      fcBirthPlace = generateBirthPlace birthPlace
 
       fcControlCode = ""

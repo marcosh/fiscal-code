@@ -4,6 +4,7 @@ module Data.FiscalCode.Internal.GenerateFiscalCode
   , generateYear
   , generateMonth
   , generateDay
+  , generateBirthPlace
   )
   where
 
@@ -73,3 +74,6 @@ generateDay date gender = padded 2 '0' $ show day
     day = case gender of
       Male   -> dateDay date
       Female -> dateDay date + 40
+
+generateBirthPlace :: BirthPlace -> String
+generateBirthPlace (BirthPlace birthPlace) = birthPlace
