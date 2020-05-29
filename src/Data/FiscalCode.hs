@@ -5,6 +5,7 @@ module Data.FiscalCode
   , BirthPlace(..)
   , FiscalCode
   , generateFiscalCode
+  , prettyFC
   , omocodia
   )
   where
@@ -41,8 +42,12 @@ readFC s = FiscalCode surname name year month day birthPlace controlCode
     (name, u)                 = splitAt 3 t
     (year, v)                 = splitAt 2 u
     (month, w)                = splitAt 1 v
-    (day, x)                  = splitAt 1 w
+    (day, x)                  = splitAt 2 w
     (birthPlace, controlCode) = splitAt 4 x
 
+prettyFC :: FiscalCode -> String
+prettyFC (FiscalCode surname name year month day birthPlace controlCode) =
+    surname ++ name ++ year ++ month ++ day ++ birthPlace ++ controlCode
+
 omocodia :: FiscalCode -> FiscalCode
-omocodia = readFC . FCO.omocodia . show
+omocodia = readFC . FCO.omocodia . prettyFC

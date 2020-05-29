@@ -22,7 +22,4 @@ data FiscalCode = FiscalCode
   , _fcBirthPlace  :: String -- one letter and three alphanumeric characters
   , _fcControlCode :: String -- one letter
   }
-
-instance Show FiscalCode where
-  show (FiscalCode surname name year month day birthPlace controlCode) =
-    surname ++ name ++ year ++ month ++ day ++ birthPlace ++ controlCode
+  deriving (Eq, Show)
