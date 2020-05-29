@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 237420c3d77eff59ba40e65f1bd31896f40fae013bf94990163efa3799fe23ad
+-- hash: 704d97bd13f2cc70f3918d43fdfd983b88dac6a1a825c635c5b12fa6bcac9729
 
 name:           fiscal-code
 version:        0.1.0.0
@@ -42,6 +42,7 @@ test-suite fiscal-code-test
   other-modules:
       Data.FiscalCode.Internal.GenerateFiscalCodeSpec
       Data.FiscalCode.Internal.OmocodiaSpec
+      Data.FiscalCodeSpec
       Paths_fiscal_code
   hs-source-dirs:
       test
